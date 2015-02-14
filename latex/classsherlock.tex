@@ -1,0 +1,88 @@
+\hypertarget{classsherlock}{\section{sherlock \-Class \-Reference}
+\label{classsherlock}\index{sherlock@{sherlock}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsherlock_a0f58bb939c98ae141845bd3153c7ec81}{holmes} (string filename, \hyperlink{classsimplegraph}{simplegraph} $\ast$graph)
+\item 
+vector$<$ string $>$ \hyperlink{classsherlock_a9e93ce7f7fde80a4432b49e9f327de64}{observe} (string s)
+\item 
+void \hyperlink{classsherlock_ae672683b6f7df66f330e382ea8db0ddd}{deduce} (vector$<$ string $>$, \hyperlink{classsimplegraph}{simplegraph} $\ast$graph)
+\item 
+void \hyperlink{classsherlock_a20754396ee921ba1116be5cf8249d969}{edgehandler} (string s, \hyperlink{classsimplegraph}{simplegraph} $\ast$graph)
+\item 
+void \hyperlink{classsherlock_af8095bfd571271653a22484b4c99b2b5}{nodehandler} (string s1, string s2, string s3, string s4, \hyperlink{classsimplegraph}{simplegraph} $\ast$graph)
+\item 
+string \hyperlink{classsherlock_a05778d65920917af3a66bd92aeccadf3}{extract} (string s)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classsherlock_ae672683b6f7df66f330e382ea8db0ddd}{\index{sherlock@{sherlock}!deduce@{deduce}}
+\index{deduce@{deduce}!sherlock@{sherlock}}
+\subsubsection[{deduce}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sherlock\-::deduce} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$}]{input, }
+\item[{{\bf simplegraph} $\ast$}]{graph}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_ae672683b6f7df66f330e382ea8db0ddd}
+\-Processes each line from the string vector and adds the data to the simplegraph object. iterates twice over the file, first builds all nodes and then all the edges. cur is the iterator.
+
+iterate over input, for nodes only, because while adding edges its nodes must exist.
+
+check whether the description is of a node.
+
+call nodehandler with all the lines in its description.
+
+\-Increment by 5, since a node description will be of 5 lines.
+
+\-Reset the iterator.
+
+iterate again, this time for edges \hypertarget{classsherlock_a20754396ee921ba1116be5cf8249d969}{\index{sherlock@{sherlock}!edgehandler@{edgehandler}}
+\index{edgehandler@{edgehandler}!sherlock@{sherlock}}
+\subsubsection[{edgehandler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sherlock\-::edgehandler} (
+\begin{DoxyParamCaption}
+\item[{string}]{s, }
+\item[{{\bf simplegraph} $\ast$}]{graph}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_a20754396ee921ba1116be5cf8249d969}
+\-Stores the data of the edge contained in the string into the graph. expected edge format\-: $<$edge source=\char`\"{} 2\char`\"{} target=\char`\"{} 3\char`\"{}$>$\hypertarget{classsherlock_a05778d65920917af3a66bd92aeccadf3}{\index{sherlock@{sherlock}!extract@{extract}}
+\index{extract@{extract}!sherlock@{sherlock}}
+\subsubsection[{extract}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf sherlock\-::extract} (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_a05778d65920917af3a66bd92aeccadf3}
+extracts the nodeid from a string of type \char`\"{}$<$node id=\char`\"{} 3\char`\"{} $>$\char`\"{} \hypertarget{classsherlock_a0f58bb939c98ae141845bd3153c7ec81}{\index{sherlock@{sherlock}!holmes@{holmes}}
+\index{holmes@{holmes}!sherlock@{sherlock}}
+\subsubsection[{holmes}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sherlock\-::holmes} (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{{\bf simplegraph} $\ast$}]{graph}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_a0f58bb939c98ae141845bd3153c7ec81}
+\-This is the main export function. \-It reads the contents of the \char`\"{}filename\char`\"{} file, and writes it to the graph object given. \hypertarget{classsherlock_af8095bfd571271653a22484b4c99b2b5}{\index{sherlock@{sherlock}!nodehandler@{nodehandler}}
+\index{nodehandler@{nodehandler}!sherlock@{sherlock}}
+\subsubsection[{nodehandler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sherlock\-::nodehandler} (
+\begin{DoxyParamCaption}
+\item[{string}]{s1, }
+\item[{string}]{s2, }
+\item[{string}]{s3, }
+\item[{string}]{s4, }
+\item[{{\bf simplegraph} $\ast$}]{graph}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_af8095bfd571271653a22484b4c99b2b5}
+\-Stores the data of a node contained in the graph. \-N\-O\-T\-E\-: \-This \-M\-U\-S\-T be the format of the graphml, otherwise won't work properly. $<$node id=\char`\"{} 0\char`\"{}$>$ $<$data key=\char`\"{}d0\char`\"{}$>$ \-Mahima \-Singh$<$/data$>$ $<$data key=\char`\"{}d1\char`\"{}$>$ \-I\-I\-T\-D$<$/data$>$ $<$data key=\char`\"{}d2\char`\"{}$>$ 1$<$/data$>$ $<$/node$>$\hypertarget{classsherlock_a9e93ce7f7fde80a4432b49e9f327de64}{\index{sherlock@{sherlock}!observe@{observe}}
+\index{observe@{observe}!sherlock@{sherlock}}
+\subsubsection[{observe}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ {\bf sherlock\-::observe} (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}}\label{classsherlock_a9e93ce7f7fde80a4432b49e9f327de64}
+\-Returns a string array created from given file. \-Each string consists of one line of the file. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sherlock.\-h\item 
+sherlock.\-cpp\end{DoxyCompactItemize}

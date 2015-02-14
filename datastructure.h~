@@ -1,0 +1,183 @@
+/*
+ * datastructure.h
+ *
+ *  Created on: 12 Oct 2013
+ *
+ */
+
+#ifndef DATASTRUCTURE_H_
+#define DATASTRUCTURE_H_
+
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <map>
+#include <pthread.h>
+#include <unistd.h>
+using namespace std;
+
+static pthread_mutex_t lock;
+
+//all the classes
+class network;
+class courses;
+class hostel;
+class interest;
+class students;
+class faculty;
+class houselocality;
+class student;
+class university;
+
+//Classes for Part 2
+
+/** The node class for the graph.*/
+class people
+{
+	public:
+		string name;
+		string university;
+		///This is the entryno/employee code.		
+		int id;		
+		///temporary  shortest distance from source in graph
+		int dkdist;    
+		///included in the shortest path between two people or not 		
+		bool dkvisited; 
+		/// importance is the number of shortest paths on which the node exists
+		int importance;//=0;
+		///node id is the index of this node in nodelist.
+		int nodeid;
+		 ///list of friendships
+		vector<people*> friends;
+		people()
+		{
+			importance = 0;
+		}
+};
+
+/** Each edge represents a friendship.*/
+class edge
+{
+	public:
+		people* friend1;/// 1st friend in the friendship edge 
+		people* friend2;/// 2nd friend in the undirected friendhip edge 
+};
+
+/** The format for storing data from a graphml file. */
+class simplegraph
+{
+	public:
+		string name;
+		vector<edge*> friendlist; /// The list of friendships(edges).
+		vector<people*> nodelist; /// The list of people(nodes). 
+		bool flag;		  /// This flag is true if the importance of the nodes has been evaluated.
+		bool fw;		  /// This is true if the Floyd-Warshall algo has been run on the graph. 
+		pair<int**,int**> mats;	  /// This pair of matrices is the output from the floyd-warshall algorithm.
+		simplegraph()             /// Graph initiation bools 
+		{
+			flag = false;
+			fw = false;
+		}
+};
+
+class network
+{
+	public:
+		vector<university*> universitylist;/// list of universities in the network
+		vector<int> RANDOMSEED;            ///randomseeds used in the network
+		vector<interest*> interests;       ///list of interests in the network
+		network()                          ///constructor
+		{               
+
+		}
+};
+
+class department
+{	
+	public:
+		string name; ///department name
+		int faculty_no; ///number of faculty
+		int student_no; ///number of student
+		float dep_courses; ///floateds department courses
+		float nondep_courses; //floated non-department courses
+		vector<student*> students; ///list of students 
+		vector<faculty*> facultylist; ///list of faculty
+		vector<courses*> courselist; ///list of courses
+		vector<courses*> floatedcourses; ///list of floated courses
+		vector<interest*> interests; ///list of interests
+		map<string,float> poplist;
+};
+
+class courses
+{	
+	public:
+		string name; ///name of course
+		vector<student*> students; ///list of students enrolled in this course
+		department* dep; ///department which floated the course
+		faculty* prof; ///professor teaching the course
+		float frequency_per_year;///no of times which is floates
+};
+ 
+class hostel
+{	public:
+	string name; ///hostel name
+	vector<student*> students; ///list of students in the hostel
+};
+
+class interest
+{
+	public:
+		string name; ///interest's name
+		vector<student*> students; ///list of students having same interest
+		vector<faculty*> facultylist; ///list of faculty having same interest
+		
+};
+
+class faculty
+{
+	public:
+		int emp_code; //employee code
+		string name; ///name of faculty
+		university* univty; ///name of university
+	department* fac_department; ///name of department
+	courses* fac_course; ///name of course taken by faculty
+	houselocality* fac_houselocality; ///houselocality of prof
+	vector<interest*> fac_interest; ///list of interests of prof
+};
+
+class houselocality
+{	public:
+		string name; ///address of house
+		vector<faculty*> facultylist; ///list of profs living the houselocality
+};
+
+class student
+{
+	public:
+		int entryno; ///entryno
+		string name; ///name of student
+	department* st_department; ///department of student
+	vector<courses*> st_courses; ///courses taken by student
+	university* st_university; ///university of student
+	hostel* st_hostel; ///hostel in which student lives
+	vector<interest*> st_interest; ///interests of student
+	vector<student*>  sfriends; ///friendlist of students
+};
+
+class university
+{
+	public:
+		string name; ///name of university
+	vector<department*> departments; ///list of departments
+	vector<courses*> courselist; ///list of courses
+	vector<hostel*> hostels; ///list of hostels
+	vector<student*> students; ///list of students
+	vector<faculty*> facultylist; ///list of faculty
+	vector<houselocality*> houselocalitylist; ///list of houselocalities.
+	int FRIENDSHIPRATE;
+	float OPENNESS;
+	float FRIENDLINESS;
+};
+
+#endif //DATASTRUCTURE_H_

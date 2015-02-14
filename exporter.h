@@ -1,0 +1,44 @@
+/*
+ * export.h
+ *
+ *  Created on: Nov 13, 2013
+ *      Author: hooda
+ */
+
+#ifndef EXPORT_H_
+#define EXPORT_H_
+
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <map>
+#include <fstream>
+#include <cstdlib>
+#include "datastructure.h"
+
+
+class exporter
+{
+	public:
+	/** create a file called "network.graphml" from contents of graph. */
+	void write(network* graph);
+
+	/** returns the graphml data of a student node. */
+	vector<string> nodexs(student* stud, int i);
+
+	/** returns the graphml data of a faculty. */
+	vector<string> nodexf(faculty* fac, int i);
+
+	/** returns the position in the nodelist where the given code occurs. */
+	int lookup(int code, vector<int> nodelist);
+
+	/** returns the graphml data of an edge, if it exists, else "xx" */
+	string edgex(int n1, int n2, vector<pair<int,int> >);
+
+	/** int to string converter. */
+	string to_string(int number);
+};
+
+
+#endif /* EXPORT_H_ */

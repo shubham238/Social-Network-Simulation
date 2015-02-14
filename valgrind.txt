@@ -1,0 +1,66 @@
+==15984== 
+==15984== HEAP SUMMARY:
+==15984==     in use at exit: 124,729 bytes in 2,053 blocks
+==15984==   total heap usage: 10,703 allocs, 8,650 frees, 2,272,036 bytes allocated
+==15984== 
+==15984== 8 bytes in 1 blocks are definitely lost in loss record 4 of 49
+==15984==    at 0x4C2B1C7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15984==    by 0x411FDD: main (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984== 
+==15984== 1,773 bytes in 45 blocks are possibly lost in loss record 31 of 49
+==15984==    at 0x4C2B1C7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15984==    by 0x4ED0A88: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED17FA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED18DF: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED1E0C: std::string::append(std::string const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x40BFF2: generate_faculty(void*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x564BE99: start_thread (pthread_create.c:308)
+==15984==    by 0x59553FC: clone (clone.S:112)
+==15984== 
+==15984== 1,809 bytes in 63 blocks are possibly lost in loss record 33 of 49
+==15984==    at 0x4C2B1C7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15984==    by 0x4ED0A88: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED22B4: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED2414: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::string const&, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED2441: std::string::substr(unsigned long, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x40250A: parser::split(std::string, std::string) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x402641: parser::linehandler(std::string, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x402414: parser::initialise(std::vector<std::string, std::allocator<std::string> >, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x40233B: parser::parse(std::string, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x41201F: main (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984== 
+==15984== 7,380 bytes in 180 blocks are possibly lost in loss record 45 of 49
+==15984==    at 0x4C2B1C7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15984==    by 0x4ED0A88: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED17FA: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED18DF: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED1E0C: std::string::append(std::string const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x40DB00: generate_student(void*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x564BE99: start_thread (pthread_create.c:308)
+==15984==    by 0x59553FC: clone (clone.S:112)
+==15984== 
+==15984== 9,399 bytes in 285 blocks are possibly lost in loss record 47 of 49
+==15984==    at 0x4C2B1C7: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15984==    by 0x4ED0A88: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED22B4: char* std::string::_S_construct<char*>(char*, char*, std::allocator<char> const&, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED2414: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::string const&, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4ED2441: std::string::substr(unsigned long, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16)
+==15984==    by 0x4024CB: parser::split(std::string, std::string) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x402641: parser::linehandler(std::string, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x402414: parser::initialise(std::vector<std::string, std::allocator<std::string> >, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x40233B: parser::parse(std::string, network*) (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984==    by 0x41201F: main (in /home/btech/cs1120254/workspace3/finale/a.out)
+==15984== 
+==15984== LEAK SUMMARY:
+==15984==    definitely lost: 8 bytes in 1 blocks
+==15984==    indirectly lost: 0 bytes in 0 blocks
+==15984==      possibly lost: 20,361 bytes in 573 blocks
+==15984==    still reachable: 104,360 bytes in 1,479 blocks
+==15984==         suppressed: 0 bytes in 0 blocks
+==15984== Reachable blocks (those to which a pointer was found) are not shown.
+==15984== To see them, rerun with: --leak-check=full --show-reachable=yes
+==15984== 
+==15984== For counts of detected and suppressed errors, rerun with: -v
+==15984== Use --track-origins=yes to see where uninitialised values come from
+==15984== ERROR SUMMARY: 101 errors from 6 contexts (suppressed: 2 from 2)
+
